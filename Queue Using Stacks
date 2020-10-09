@@ -1,0 +1,30 @@
+#include <iostream>
+#include<stack>
+using namespace std;
+stack <char> s1;
+  stack <char> s2;
+  void enqueue(int a)
+  {
+    s1.push(a);
+    s2.push(s1.top());
+  }
+  void dequeue()
+{
+  s2.pop();
+}
+void display()
+{
+  while(!s2.empty())
+  {
+    cout<<s2.top();
+    s2.pop();
+  }
+}
+int main() {
+
+  enqueue(2);
+  enqueue(3);
+  enqueue(4);
+  dequeue();
+  display();
+}
