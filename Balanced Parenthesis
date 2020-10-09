@@ -1,0 +1,40 @@
+#include <iostream>
+#include<stack>
+using namespace std;
+string p;
+int f=1;
+int main() {
+  stack <char> s;
+  cout<<"Enter expression \n";
+cin>>p;
+
+for(int i=0;i<p.length();i++)
+{
+  
+   if(p[i]=='['||p[i]=='{'||p[i]=='(')
+ {
+s.push(p[i]);
+ }
+ else {
+   
+  if (p[i]==')' && (s.top()=='{'||s.top()=='['))
+  {
+f=0;
+  }
+  if (p[i]=='}' && (s.top()=='('||s.top()=='['))
+  {
+f=0;
+  }
+  if (p[i]==']' && (s.top()=='{'||s.top()=='('))
+  {
+f=0;
+  }
+  s.pop();
+ }
+}
+if(f==0)
+cout<<"unbalanced\n";
+if(f==1)
+cout<<"balanced\n";
+
+}
